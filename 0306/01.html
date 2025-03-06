@@ -4,8 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+            transition: background-color 1s;
+        }
+        .content {
+            font-size: 2em;
+            transition: opacity 1s;
+        }
+    </style>
 </head>
 <body>
-    <h1>welcome HTML5, CSS3, Javascript</h1>
+    <div class="content" id="dynamicContent">Welcome HTML5, CSS3, Javascript</div>
+
+    <script>
+        const messages = [
+            "Welcome HTML5, CSS3, Javascript",
+            "Enjoy coding with modern web technologies!",
+            "Create amazing web applications!",
+            "Stay curious and keep learning!"
+        ];
+
+        const colors = [
+            "#FF5733", // Red
+            "#33FF57", // Green
+            "#3357FF", // Blue
+            "#FF33A1"  // Pink
+        ];
+
+        let currentIndex = 0;
+        const contentElement = document.getElementById('dynamicContent');
+        const bodyElement = document.body;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            contentElement.style.opacity = 0;
+            setTimeout(() => {
+                contentElement.textContent = messages[currentIndex];
+                contentElement.style.opacity = 1;
+                bodyElement.style.backgroundColor = colors[currentIndex];
+            }, 1000);
+        }, 3000);
+    </script>
 </body>
 </html>
