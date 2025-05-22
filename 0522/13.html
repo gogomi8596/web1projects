@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let colors = ["red", "blue", "green"];
+        let bgColors = ["yellow", "pink", "orange"];
+        let texts = ["한국폴리텍대학", "인공지능", "서울정수"];
+        function changeStyle() {
+            let t1 = document.querySelectorAll("h1");
+            for (let i=0; i < t1.length; i++) {
+                t1[i].style.color = colors[i];
+                t1[i].style.backgroundColor = bgColors[i];
+                t1[i].innerText = texts[i];
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>poly</h1>
+    <h1>aisw</h1>
+    <h1>신창섭</h1>
+</body>
+</html>
