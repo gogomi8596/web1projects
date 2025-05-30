@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>거북북 - 6월 터틀맨 추천 도서</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 80px;
+      max-width: 100%;
+    }
+
+    .search-box {
+      flex-grow: 1;
+      margin-left: 20px;
+      position: relative;
+      min-width: 200px;
+    }
+
+    .search-box input[type="text"] {
+      width: 100%;
+      padding: 8px 12px 8px 36px;
+      font-size: 1em;
+      background-color: transparent;
+      border: 2px solid #ccffcc;
+      outline: none;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-box .icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 20px;    
+    height: 20px;
+    pointer-events: none;
+    }
+    h1 {
+      padding: 20px;
+      font-size: 1.8em;
+    }
+    .banner-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.banner-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 125px;
+  padding: 20px;
+  background-color: transparent;
+
+  border-top: 3px solid;
+  border-bottom: 3px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+
+  width: calc(100% - 80px);
+  margin: 30px 40px;
+}
+
+    .nav-buttons button {
+    padding: 10px 24px; 
+    border: none;    
+    background: none;  
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: color 0.2s, transform 0.2s;
+    }
+
+    .nav-buttons button:hover {
+    color: #339933; 
+    transform: translateY(-2px);
+    }
+
+    .book-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 100px 200px; 
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.book-card {
+  width: 400px;
+  background-color: #fff;
+  border: 3px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+}
+
+.book-card img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.book-details {
+  padding: 20px;
+  text-align: left;
+}
+
+.book-details h3 {
+  margin: 0 0 10px;
+  font-size: 1.3em;
+}
+
+.book-details p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 0.95em;
+}
+.title {
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.info-section {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin: 40px auto;
+  max-width: 1000px;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  width: 400px;
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-size: 1em;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.mint-button {
+      background-color: #3ed6b8; 
+      color: white;
+      border: none;
+      padding: 80px 200px;
+      font-size: 50px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .mint-button:hover {
+      background-color: #34c3a5;
+      transform: scale(1.05);
+    }
+
+    .mint-button:active {
+      transform: scale(0.98);
+    }
+    .site-info {
+    background-color: #3ed6b8;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9em;
+    margin-top: 80px;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+    }
+    .site-info p {
+    margin: 6px 0;
+    }
+
+    a {
+    color: inherit;
+    text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      .search-box {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <a href="main.html">
+          <img src="logo.png" alt="거북북 로고" />
+        </a>
+      </div>
+    <div class="search-box">
+        <img src="magnifier.png" alt="검색 아이콘" class="icon" />
+        <form action="error.html" method="GET">
+          <input type="text" placeholder="일본 대문호 '고죠 사토루'의 신작 &lt;천상천하&gt;" name="query" />
+        </form>
+    </div>
+  </header>
+
+  <nav class="nav-buttons">
+    <a href="error.html"><button>마이페이지</button></a>
+    <a href="error.html"><button>신작도서</button></a>
+    <a href="error.html"><button>국내도서</button></a>
+    <a href="error.html"><button>해외도서</button></a>
+    <a href="error.html"><button>중고도서</button></a>
+    <a href="error.html"><button>터틀맨</button></a>    
+  </nav>
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 0 20px;" />
+    <hr style="border: none;">
+    <a href="error.html">
+  <div class="banner-container">
+    <img src="adnew.png" alt="추천 도서 배너 이미지" style="cursor:pointer;"/>
+  </div>
+  </a>
+    <hr style="border: none;">
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 0 20px;" />
+    <h1 class="title">터틀맨의 선택을 받은 6월 추천 도서</h1>
+
+    <div class="book-grid">
+        <a href="book1.html">
+        <div class="book-card">
+          <img src="book1.png" alt="책1" />
+          <div class="book-details">
+            <h3>순백</h3>
+            <p>백산수</p>
+            <p>2025 아벨 문학상 수상작</p>
+          </div>
+        </div>
+        </a>
+        
+        <a href="book2.html">
+        <div class="book-card">
+          <img src="book2.png" alt="책2" />
+          <div class="book-details">
+            <h3>붉은 섬광</h3>
+            <p>안톤 유딘체프</p>
+            <p>2025 부처상 수상작</p>
+          </div>
+        </div>
+        </a>
+
+        <a href="book3.html">
+        <div class="book-card">
+          <img src="book3.png" alt="책3" />
+          <div class="book-details">
+            <h3>자숙의 정석</h3>
+            <p>최진우</p>
+            <p>사죄가 필요한 현대인들의 필독서</p>
+          </div>
+        </div>
+        </a>
+        
+        <a href="book4.html">
+        <div class="book-card">
+          <img src="book4.png" alt="책4" />
+          <div class="book-details">
+            <h3>전생했더니화염마왕의하렘이되었다2</h3>
+            <p>노하라 히로시</p>
+            <p>징기즈 칸 애니제 대상</p>
+          </div>
+        </div>
+        </a>
+              
+        <a href="book5.html">
+        <div class="book-card">
+            <img src="book5.png" alt="책5" />
+            <div class="book-details">
+              <h3>40살 아저씨가 알려주는 주식이야기</h3>
+              <p>비에로</p>
+              <p>경제학자 '이토 카이지'의 추천서</p>
+            </div>
+          </div>
+        </a>
+        <a href="book6.html">
+        <div class="book-card">
+            <img src="book6.png" alt="책6" />
+            <div class="book-details">
+              <h3>백만 인플루언서 되기</h3>
+              <p>가렌</p>
+              <p>100만 팔로워 '가렌'의 에세이</p>
+            </div>
+          </div>
+        </a>
+          <a href="book7.html">
+          <div class="book-card">
+            <img src="book7.png" alt="책7" />
+            <div class="book-details">
+              <h3>아프리카 일주</h3>
+              <p>에르빈 롬멜</p>
+              <p>너무 감명 깊어 이집트 카이로까지 가게 만드는 책</p>
+            </div>
+          </div>
+          </a>
+          <a href="https://www.youtube.com/watch?v=dnH9rECe09U">
+          <div class="book-card">
+            <img src="book8.png" alt="책7" />
+            <div class="book-details">
+              <h3>고든의 파인애플 피자 레시피</h3>
+              <p>고든 프리맨</p>
+              <p>허락 받지 않았지만 표지에 나온 램지! 작가는 다르다!</p>
+            </div>
+          </div>
+          </a>
+      </div>
+      <hr style="border: none; border-top: 1px solid #ccc; margin: 0 20px;" />
+      <h4 class="title">터틀맨은 무엇일까요?</h4>
+
+      <div class="info-section">
+        <div class="info-card">
+          <p>터틀맨은 고대 도서의 수호자이자, 신비로운 책의 선택자입니다.<br/>
+             그가 고른 책은 한 달 동안 수많은 독자에게 읽히며<br/>
+             '터틀 초이스'로 불립니다.</p>
+        </div>
+        <div class="info-card">
+          <p>느리지만 꾸준하게, 깊이 읽는 거북이처럼<br/>
+             터틀맨은 빠른 유행보다는<br/>
+             '진짜 오래 남을 책'을 추천합니다.</p>
+        </div>
+        <div class="info-card">
+            <p>터틀맨이 되어 모두에게 책을 추천해주세요!<br/>
+               수 많은 독자들이 당신을 기다리고 있습니다!<br/>
+               책을 사랑하는자 누구나 가능합니다!</p>
+          </div>
+          <div class="info-card">
+            <p>부담 가지실 필요는 없습니다!<br/>
+               우리 모두 책을 즐기는 자 아닙니까?<br/>
+               여러분들의 책에 대한 경험을 멋지게 보여주세요!</p>
+          </div>
+      </div>
+      <br>
+      <div style="display: flex; justify-content: center; margin: 60px 0;">
+        <a href="https://www.youtube.com/watch?v=dRXqAYWZw_c" target="_blank">
+          <button class="mint-button">터틀맨 되기!</button>
+        </a>
+      </div>
+      <div class="site-info">
+        <p>🏢 주소: 워싱턴 주 송정리역 대방동 노트르담 대성당 2층</p>
+        <p>📞 전화번호: 010-1557-1557</p>
+        <p>✉ 이메일: tutel@t95mail.com</p>
+        <p>© 2025 거북북. All rights not reserved.</p>
+      </div>
+      <div style="text-align:center; margin: 40px 0;">
+        <a href="fake.html">
+          <img src="femu.png" alt="쓸데없는 광고" style="max-width: 100%; height: auto; cursor: pointer; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" />
+        </a>
+      </div>
+</body>
+</html>

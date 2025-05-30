@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>순백 - 거북북</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+    }
+    .book-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;                
+    margin-bottom: 30px;
+    flex-wrap: wrap;         
+    text-align: left;         
+  } 
+
+.book-info .book-cover {
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.book-meta {
+  flex: 1;
+  min-width: 200px;
+  font-size: 1.1em;
+  color: #333;
+}
+.book-meta p {
+  margin: 8px 0;
+}
+.book-info-wrapper {
+  display: flex;
+  justify-content: center; 
+  margin-bottom: 30px;
+}
+.book-info {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  text-align: left;
+}
+    body {
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    
+    header {
+      margin: 0 auto 40px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+
+    .logo img {
+      height: 80px;
+      max-width: 100%;
+      display: block;
+    }
+
+   
+    .search-box {
+      flex-grow: 1;
+      margin-left: 20px;
+      position: relative;
+      min-width: 0; 
+    }
+
+    .search-box input[type="text"] {
+      width: 100%;
+      padding: 8px 12px 8px 36px;
+      font-size: 1em;
+      background-color: transparent;
+      border: 2px solid #ccffcc;
+      outline: none;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-box .icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+    a {
+    text-decoration: none;
+    }
+
+    .nav-buttons {
+      margin: 0 auto 30px auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 125px;
+      padding: 20px 0;
+      background-color: transparent;
+      border-top: 3px solid;
+      border-bottom: 3px solid;
+      border-image-slice: 1;
+      border-image-source: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+    }
+
+    .nav-buttons button {
+      padding: 10px 24px;
+      border: none;
+      background: none;
+      color: #333;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .nav-buttons button:hover {
+      color: #339933;
+      transform: translateY(-2px);
+    }
+
+    h1 {
+      color: #000000;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    img.book-cover {
+      display: block;
+      max-width: 300px;
+      margin: 0 auto 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .details {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .title {
+      font-size: 20px;
+    }
+
+
+    .comments-section {
+      max-width: 2000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .comments-section h3 {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    .comment {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .comment:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .comment p {
+      margin: 0;
+      color: #2a7b9b;
+    }
+
+    .comment p + p {
+      margin-top: 4px;
+      font-weight: normal;
+      color: #444;
+    }
+    .site-info {
+    background-color: #3ed6b8;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9em;
+    margin-top: 80px;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+    }
+    .site-info p {
+    margin: 6px 0;
+    }
+    .del {
+      font-size: 15px;
+    }
+
+ 
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      .search-box {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .nav-buttons {
+        gap: 20px;
+      }
+      .book-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .book-meta {
+    width: 100%;
+  }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="main.html">
+        <img src="logo.png" alt="거북북 로고" />
+      </a>
+    </div>
+    <div class="search-box">
+      <img src="magnifier.png" alt="검색 아이콘" class="icon" />
+      <form action="error.html" method="GET">
+        <input type="text" placeholder="이번 달 등껍질 받기!" name="query" />
+      </form>
+    </div>
+  </header>
+
+  <nav class="nav-buttons">
+    <a href="error.html"><button>마이페이지</button></a>
+    <a href="error.html"><button>신작도서</button></a>
+    <a href="error.html"><button>국내도서</button></a>
+    <a href="error.html"><button>해외도서</button></a>
+    <a href="error.html"><button>중고도서</button></a>
+    <a href="error.html"><button>터틀맨</button></a>    
+  </nav>
+
+<div class="book-info-wrapper">
+ <div class="book-info">
+  <img src="book1.png" alt="순백 책 표지" class="book-cover" />
+  <div class="book-meta">
+    <h2>순백</h2>
+    <p><strong>저자:</strong> 백산수</p>
+    <p><strong>출판사:</strong> 거북북출판</p>
+    <p><strong>가격:</strong> 15,000원</p>
+    <p><strong>ISBN:</strong> 978-89-1234-567-8</p><br>
+    <p class="del">15,000원 이상 구매 시 무료배송</p>
+    <p class="del">등껍질 포인트 5% 지급 이벤트!</p>
+  </div>
+ </div>
+</div>
+<a href="error.html">
+<div style="text-align: center; margin-bottom: 20px;">
+  <button style="background-color: #d93025; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; margin-right: 10px; cursor: pointer;">
+    🛒 장바구니
+  </button>
+  <button style="background-color: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">
+    📦 구매하기
+  </button>
+</div>
+</a>
+    <p style="margin-top: 15px; line-height: 1.6; color: #444;">
+     『순백』은 단순한 소설을 넘어, 현대 문학이 나아가야 할 방향을 제시하는 걸작이다. 백산수 작가는 이 작품을 통해 인간 내면의 순수함과 그 순수함이 세상과 부딪힐 때 겪는 갈등을 섬세하게 그려냈다. 문장 곳곳에 스며있는 시적 감성과 탁월한 심리 묘사는 독자들을 책 속에 완벽히 몰입하게 만든다.<br><br>
+
+      아벨 문학상 수상작답게 작품 곳곳에 숨어 있는 상징과 은유는 독서가에게 다층적인 해석의 즐거움을 선사한다. ‘순백’이라는 제목이 뜻하는 바처럼, 무색무취의 ‘순수함’이란 개념이 어떻게 인간의 욕망과 절망 사이에서 흔들리는지를 탐구하며, 독자 스스로 자기 내면을 들여다보게 만든다.<br><br>
+
+      백산수 작가는 이 책을 집필하는 동안 극심한 고통과 영감을 오가며, 매일 새벽 도시의 한적한 카페에서 3년간 집필했다는 일화도 유명하다. 덕분에 작품 곳곳에서 삶의 애환과 희망이 진하게 느껴진다. 또한, 출간 후 국내외 여러 문학 비평가들로부터 극찬을 받으며, 한때 절판 위기였던 국내 문학 시장에 신선한 바람을 불어넣었다.<br><br>
+
+      이 책을 읽는 동안 독자들은 일상에서 미처 느끼지 못했던 감정의 깊이를 경험하게 되며, 삶에 대한 새로운 시각을 얻을 것이다. 문학을 사랑하는 이라면 반드시 소장해야 할 작품이며, ‘2025 아벨 문학상 수상작’이라는 타이틀이 결코 과장이 아님을 직접 확인할 수 있을 것이다.
+    </p>
+  </div>
+
+  <div class="comments-section">
+    <h3>독자 댓글</h3>
+
+    <div class="comment">
+      <p><strong>로그인 후 사용 가능합니다.</strong></p>
+      <p>로그인 후 사용 가능합니다.</p>
+    </div>
+
+    <div class="comment">
+      <p><strong>책덕후99</strong></p>
+      <p>화가가 누군지 모르지만 표지가 너무 예뻐서 샀습니다!</p>
+    </div>
+
+    <div class="comment">
+      <p><strong>독서광</strong></p>
+      <p>문장이 정말 아름답고 몰입감 최고였습니다.</p>
+    </div>
+
+    <div class="comment">
+      <p><strong>감성작가</strong></p>
+      <p>여운이 오래가는 책, 제 인생책 목록에 추가했어요.</p>
+    </div>
+
+    <div class="comment">
+      <p><strong>독서러버</strong></p>
+      <p>재밌고 감동적이네요! 다음 작품도 기대합니다.</p>
+    </div>
+  </div>
+  <div class="site-info">
+    <p>🏢 주소: 워싱턴 주 송정리역 대방동 노트르담 대성당 2층</p>
+    <p>📞 전화번호: 010-1557-1557</p>
+    <p>✉ 이메일: tutel@t95mail.com</p>
+    <p>© 2025 거북북. All rights not reserved.</p>
+  </div>
+  <div style="text-align:center; margin: 40px 0;">
+    <a href="fake.html">
+      <img src="femu.png" alt="쓸데없는 광고" style="max-width: 100%; height: auto; cursor: pointer; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" />
+    </a>
+  </div>
+</body>
+</html>
