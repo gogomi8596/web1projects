@@ -4,6 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>거북북 - 6월 터틀맨 추천 도서</title>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $('#turtle-alert').fadeIn(600);
+ 
+    $('#close-alert').on('click', function() {
+      $('#turtle-alert').fadeOut(300);
+    });
+  });
+</script>
+  <script>
+  window.onload = function() {
+    alert("⚠️ 긴급 점검이 진행 중 입니다.\n예상 소요 시간: 점검 종료 공지까지");
+ 
+  };
+ 
+    $(function () {
+    $('#specialRandomBtn').on('click', function () {
+      const targetTitles = ["순백", "아프리카 일주", "백만 인플루언서 되기", "자숙의 정석", "붉은 섬광", "전생했더니화염마왕의하렘이되었다2", "40살 아저씨가 알려주는 주식이야기", "고든의 파인애플 피자 레시피"];
+      const allBooks = $('.book-card');
+ 
+      const randomTitle = targetTitles[Math.floor(Math.random() * targetTitles.length)];
+ 
+      let found = false;
+      allBooks.each(function () {
+        const title = $(this).find("h3").text().trim();
+        if (title === randomTitle && !found) {
+          found = true;
+ 
+          alert("📘 오늘 당신의 터틀북은: " + title + "입니다!");
+          $('html, body').animate({
+            scrollTop: $(this).offset().top - window.innerHeight / 3
+          }, 600);
+ 
+          $(this).css('box-shadow', '0 0 20px 4px #3ed6b8');
+          setTimeout(() => {
+            $(this).css('box-shadow', '');
+          }, 1500);
+        }
+      });
+    });
+  });
+</script>
   <style>
     * {
       box-sizing: border-box;
@@ -220,6 +263,31 @@
     text-decoration: none;
     }
 
+    #turtle-alert {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffdddd;
+  color: #990000;
+  padding: 30px 40px;
+  border: 2px solid #cc0000;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  font-size: 1.1em;
+  z-index: 9999;
+  display: none;
+}
+#close-alert {
+  margin-top: 10px;
+  background: #cc0000;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+    
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -251,7 +319,15 @@
         </form>
     </div>
   </header>
-
+<div id="turtle-alert">
+  ⚠️ 현재 디도스 공격으로 인해<br/>
+  사이트 접속이 불안정합니다.<br/>
+  빠른 시일내 복구하도록 하겠습니다.<br/>
+  죄송하게도, 현재로서는<br/>
+  <strong>대부분 도서 시스템</strong>을 이용하실 수 없습니다.<br/>
+  <br/>조속히 복구하여 더 좋은 서비스를 제공하겠습니다.
+  <button id="close-alert">닫기</button>
+  </div>
   <nav class="nav-buttons">
     <a href="error.html"><button>마이페이지</button></a>
     <a href="error.html"><button>신작도서</button></a>
@@ -377,6 +453,9 @@
           </div>
           </a>
       </div>
+  <div style="text-align: center; margin: 40px 0;">
+  <button id="specialRandomBtn" class="mint-button">🐢 터틀북 5종 뽑기</button>
+</div>
       <hr style="border: none; border-top: 1px solid #ccc; margin: 0 20px;" />
       <h4 class="title">터틀맨은 무엇인가요?</h4>
 
